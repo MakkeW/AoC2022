@@ -52,11 +52,11 @@ class Day12 {
 
     }
 
-    static int findExit(Point p9, List<List<Character>> g) {
+    static int findExit(Point start, List<List<Character>> g) {
         Set<Point> visited = new HashSet<>();
         Set<Point> currentLevel = new HashSet<>();
-        currentLevel.add(p9);
-        visited.add(p9);
+        currentLevel.add(start);
+        visited.add(start);
     
         int steps = 0;
         while(!currentLevel.isEmpty()){
