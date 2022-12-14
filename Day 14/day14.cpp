@@ -23,7 +23,7 @@ void readInput(vector<T>& input)
     }
 }
 //1000 x 1000 grid
-vector<vector<char>> grid = vector<vector<char>>(100000, vector<char>(100000, '.')); 
+vector<vector<char>> grid = vector<vector<char>>(10000, vector<char>(10000, '.')); 
 
 //print grid between two coords
 void printGrid(pair<int, int> start, pair<int, int> end)
@@ -96,7 +96,7 @@ void part1(vector<T>& input)
     cout << "Part 1: " << endl;
     fillGrid(input); 
     
-    printGrid({492, 0}, {503, 10});
+    printGrid({480, 0}, {520, 12});
     cout << "maxY: " << maxY << endl;
     int x = 500;
     int y = 0;
@@ -127,7 +127,7 @@ void part1(vector<T>& input)
             continue;;
         }
     }
-    printGrid({492, 0}, {503, 10});
+    printGrid({480, 0}, {520, 12});
     cout << "count: " << count << endl;
 
    
@@ -135,9 +135,10 @@ void part1(vector<T>& input)
 template <typename T>
 void part2(vector<T>& input)
 {
+    grid = vector<vector<char>>(10000, vector<char>(10000, '.')); 
     fillGrid(input); 
     cout << "Part 2: " << endl;   
-    makeLine({0, maxY+2}, {100000-1, maxY+2}, '#');
+    makeLine({0, maxY+2}, {10000-1, maxY+2}, '#');
 
     cout << "maxY: " << maxY << endl;
     int x = 500;
@@ -171,7 +172,7 @@ void part2(vector<T>& input)
 
 
     }
-    printGrid({492, 0}, {503, 10});
+    printGrid({480, 0}, {520, 12});
     cout << "count: " << count << endl;
 }
 
@@ -180,6 +181,6 @@ int main(){
 
     auto input = vector<string>();
     readInput(input);
-    //part1(input);
+    part1(input);
     part2(input);
 }
