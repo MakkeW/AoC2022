@@ -65,20 +65,20 @@ class Day9 {
 }
 
 class Rope {
-    ArrayList<Pair> rope;
+    ArrayList<Point> rope;
     Set<String> visited = new HashSet<>();
 
     public Rope(int size, int startX, int startY) {
         visited.clear();
         rope = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            rope.add(new Pair(startX, startY));
+            rope.add(new Point(startX, startY));
         }
     }
 
     void moveHead(char dir, int length){
         for (int i = 0; i < length; i++) {
-            Pair head = rope.get(0);
+            Point head = rope.get(0);
             switch (dir){
                 case 'U':
                 head.y++;
@@ -101,11 +101,11 @@ class Rope {
     private void updateBody(){
         for (int i = 1; i < rope.size(); i++) {
             
-            Pair body = rope.get(i);
+            Point body = rope.get(i);
             if(i == rope.size()-1)  {
                 visited.add(body.x + ", " + body.y);
             }
-            Pair prev = rope.get(i-1);
+            Point prev = rope.get(i-1);
             int difX = (prev.x - body.x)/2;
             int difY = (prev.y - body.y)/2;
 
@@ -126,15 +126,15 @@ class Rope {
     }
 }
 
-class Pair{
+class Point{
     int x;
     int y;
 
-    public Pair(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-    boolean equals(Pair p){
+    boolean equals(Point p){
         return p.x == x && p.y == y;
     }
 
